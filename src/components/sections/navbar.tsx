@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 
 const navLinks = [
   { label: "Programas", href: "#programas" },
@@ -30,7 +31,7 @@ export function Navbar() {
         transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-xl border-b border-border-subtle shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+            ? "bg-white/70 backdrop-blur-2xl border-b border-black/[0.04] shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
             : "bg-transparent"
         }`}
       >
@@ -72,13 +73,15 @@ export function Navbar() {
 
           {/* CTA + Mobile menu */}
           <div className="flex items-center gap-3">
-            <a href="#programas">
-              <Button
-                className="hidden md:inline-flex bg-lime text-void font-semibold hover:bg-lime-dark rounded-full px-5 h-9 text-sm border-0 cursor-pointer"
-              >
-                Começar Agora
-              </Button>
-            </a>
+            <MagneticButton strength={0.2} className="hidden md:block">
+              <a href="#programas">
+                <Button
+                  className="bg-lime text-void font-semibold hover:bg-lime-dark rounded-full px-5 h-9 text-sm border-0 cursor-pointer"
+                >
+                  Começar Agora
+                </Button>
+              </a>
+            </MagneticButton>
 
             {/* Mobile hamburger */}
             <button
@@ -102,7 +105,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-16 z-40 bg-white/95 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 top-16 z-40 bg-white/90 backdrop-blur-2xl md:hidden"
           >
             <div className="flex flex-col items-center gap-6 pt-12">
               {navLinks.map((link) => (

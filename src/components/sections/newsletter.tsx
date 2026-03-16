@@ -15,7 +15,7 @@ export function Newsletter() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-sm font-medium uppercase tracking-widest text-lime">
+          <p className="text-sm font-medium uppercase tracking-widest text-lime-contrast">
             Newsletter
           </p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-void">

@@ -8,10 +8,12 @@ import { AboutFounder } from "@/components/sections/about-founder";
 import { Newsletter } from "@/components/sections/newsletter";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { Footer } from "@/components/sections/footer";
+import { CursorGlow } from "@/components/ui/cursor-glow";
 
 export default function Home() {
   return (
     <>
+      <CursorGlow />
       <Navbar />
       <main>
         <Hero />

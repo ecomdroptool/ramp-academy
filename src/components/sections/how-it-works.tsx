@@ -46,7 +46,7 @@ export function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="text-sm font-medium uppercase tracking-widest text-lime">
+          <p className="text-sm font-medium uppercase tracking-widest text-lime-contrast">
             Método
           </p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-void">

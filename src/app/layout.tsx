@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree, Fraunces } from "next/font/google";
+import { Figtree, Fraunces, Space_Grotesk } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
@@ -12,6 +12,12 @@ const figtree = Figtree({
 
 const fraunces = Fraunces({
   variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
   subsets: ["latin"],
   display: "swap",
 });
@@ -112,7 +118,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0A0A0A" />
       </head>
       <body
-        className={`${figtree.variable} ${fraunces.variable} ${geistMono.variable} antialiased`}
+        className={`${figtree.variable} ${fraunces.variable} ${spaceGrotesk.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
