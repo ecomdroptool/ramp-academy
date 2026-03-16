@@ -1,0 +1,43 @@
+# RAMP Academy - ramp.academy
+# Allow all search engines and AI bots
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing / Microsoft Copilot
+User-agent: Bingbot
+Allow: /
+
+# ChatGPT browsing
+User-agent: ChatGPT-User
+Allow: /
+
+# OpenAI GPTBot
+User-agent: GPTBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Claude / Anthropic
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI (Gemini)
+User-agent: Google-Extended
+Allow: /
+
+# Brave Search (used by Claude)
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://ramp.academy/sitemap.xml
