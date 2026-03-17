@@ -49,7 +49,7 @@ export function HowItWorks() {
           <p className="text-sm font-medium uppercase tracking-widest text-lime-contrast">
             Método
           </p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-void">
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-void">
             Como Funciona
           </h2>
         </motion.div>

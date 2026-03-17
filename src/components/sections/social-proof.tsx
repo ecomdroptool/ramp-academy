@@ -64,9 +64,9 @@ export function SocialProof() {
               <div className="flex items-baseline justify-center gap-0.5">
                 <NumberTicker
                   value={stat.value}
-                  className="font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-void"
+                  className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-void"
                 />
-                <span className="font-display text-2xl sm:text-3xl md:text-4xl font-black text-lime">
+                <span className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-lime">
                   {stat.suffix}
                 </span>
               </div>

@@ -18,7 +18,7 @@ export function Newsletter() {
           <p className="text-sm font-medium uppercase tracking-widest text-lime-contrast">
             Newsletter
           </p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-void">
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-void">
             Receba 1 Ideia de SaaS{" "}
             <br className="hidden sm:block" />
             Lucrativa Por Semana

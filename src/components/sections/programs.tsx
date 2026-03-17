@@ -112,7 +112,7 @@ function ProgramCard({ program, i }: { program: (typeof programs)[0]; i: number 
       <h3 className="mt-5 font-display text-xl font-bold text-void relative">
         {program.title}
       </h3>
-      <p className="mt-1 font-display text-2xl font-black text-void relative">
+      <p className="mt-1 font-display text-2xl font-extrabold text-void relative">
         {program.price}
       </p>
 
@@ -171,7 +171,7 @@ export function Programs() {
           <p className="text-sm font-medium uppercase tracking-widest text-lime-contrast">
             Programas
           </p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-void">
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-void">
             Seu Caminho Para{" "}
             <span className="relative">
               Faturar com Apps

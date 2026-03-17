@@ -39,7 +39,7 @@ export function Navbar() {
           {/* Logo */}
           <a href="#" className="flex items-baseline gap-0.5 group">
             <span
-              className={`font-display text-xl font-black tracking-tight transition-colors duration-300 ${
+              className={`font-display text-xl font-extrabold tracking-tight transition-colors duration-300 ${
                 scrolled ? "text-void" : "text-white"
               }`}
             >

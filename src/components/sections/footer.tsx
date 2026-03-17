@@ -57,7 +57,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="#" className="flex items-baseline gap-0.5">
-              <span className="font-display text-xl font-black tracking-tight text-white">
+              <span className="font-display text-xl font-extrabold tracking-tight text-white">
                 RAMP
               </span>
               <span className="font-display text-xl font-400 tracking-tight text-white/40">

@@ -98,7 +98,7 @@ function TestimonialCard({
         <span className="text-sm font-medium text-void/60">R$</span>
         <NumberTicker
           value={t.value}
-          className="font-display text-2xl font-black text-void"
+          className="font-display text-2xl font-extrabold text-void"
         />
       </div>
       <p className="mt-1 text-xs text-muted-text">{t.label}</p>
@@ -139,7 +139,7 @@ export function Testimonials() {
           <p className="text-sm font-medium uppercase tracking-widest text-lime-contrast">
             Resultados
           </p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-void">
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-void">
             Resultados Reais de{" "}
             <br className="hidden sm:block" />
             Quem Já Começou

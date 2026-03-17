@@ -48,7 +48,7 @@ export function FinalCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Pronto para criar seu{" "}
             <span className="text-lime">primeiro app lucrativo</span>?
           </h2>

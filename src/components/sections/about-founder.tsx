@@ -49,7 +49,7 @@ export function AboutFounder() {
             {/* Avatar placeholder */}
             <div className="relative">
               <div className="h-48 w-48 sm:h-56 sm:w-56 rounded-3xl bg-white/[0.03] backdrop-blur-sm border border-white/10 flex items-center justify-center">
-                <span className="font-display text-6xl font-black text-white/20">
+                <span className="font-display text-6xl font-extrabold text-white/20">
                   P
                 </span>
               </div>
@@ -89,7 +89,7 @@ export function AboutFounder() {
               <p className="text-sm font-medium uppercase tracking-widest text-lime">
                 Quem está por trás
               </p>
-              <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white">
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
                 Quem é Pedro
               </h2>
 
