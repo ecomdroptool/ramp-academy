@@ -62,28 +62,16 @@ function ProgramCard({ program, i }: { program: (typeof programs)[0]; i: number 
 
   return (
     <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: i * 0.1 }}
-      className={`card-lift relative rounded-2xl border bg-white p-8 flex flex-col overflow-hidden ${
-        program.featured
-          ? "border-lime/30 ring-1 ring-lime/20"
-          : "border-border-subtle"
-      }`}
+      className="relative"
     >
-      {/* Mouse spotlight */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 rounded-2xl"
-        style={{ background: spotlight }}
-      />
-
-      {/* Badge */}
+      {/* Badge — outside overflow-hidden */}
       {program.badge && (
         <Badge
-          className={`absolute -top-3 left-6 rounded-full px-3 py-1 text-xs font-semibold border-0 ${
+          className={`absolute -top-3 left-6 z-10 rounded-full px-3 py-1 text-xs font-semibold border-0 ${
             program.featured
               ? "bg-lime text-void"
               : "bg-void text-white"
@@ -92,6 +80,21 @@ function ProgramCard({ program, i }: { program: (typeof programs)[0]; i: number 
           {program.badge}
         </Badge>
       )}
+
+      <div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        className={`card-lift relative rounded-2xl border bg-white p-8 flex flex-col overflow-hidden h-full ${
+          program.featured
+            ? "border-lime/30 ring-1 ring-lime/20"
+            : "border-border-subtle"
+        }`}
+      >
+        {/* Mouse spotlight */}
+        <motion.div
+          className="pointer-events-none absolute inset-0 rounded-2xl"
+          style={{ background: spotlight }}
+        />
 
       {/* Icon */}
       <div
@@ -148,6 +151,7 @@ function ProgramCard({ program, i }: { program: (typeof programs)[0]; i: number 
           />
         </a>
       </MagneticButton>
+      </div>
     </motion.div>
   );
 }

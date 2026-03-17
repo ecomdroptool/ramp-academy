@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Figtree, Fraunces, Space_Grotesk } from "next/font/google";
+import { Figtree, Fraunces } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
 
@@ -16,9 +17,18 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const gudlak = localFont({
+  src: [
+    { path: "../fonts/GCGudlakDemo-Thin-BF695cd59bbba72.ttf", weight: "100" },
+    { path: "../fonts/GCGudlakDemo-ExtraLight-BF695cd59ba678a.ttf", weight: "200" },
+    { path: "../fonts/GCGudlakDemo-Light-BF695cd59b5a172.ttf", weight: "300" },
+    { path: "../fonts/GCGudlakDemo-Regular-BF695cd59bb1a11.ttf", weight: "400" },
+    { path: "../fonts/GCGudlakDemo-Medium-BF695cd59b7df0f.ttf", weight: "500" },
+    { path: "../fonts/GCGudlakDemo-SemiBold-BF695cd59bc5211.ttf", weight: "600" },
+    { path: "../fonts/GCGudlakDemo-Bold-BF695cd59b3f47c.ttf", weight: "700" },
+    { path: "../fonts/GCGudlakDemo-ExtraBold-BF695cd59b73d76.ttf", weight: "800" },
+  ],
   variable: "--font-space",
-  subsets: ["latin"],
   display: "swap",
 });
 
@@ -118,7 +128,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0A0A0A" />
       </head>
       <body
-        className={`${figtree.variable} ${fraunces.variable} ${spaceGrotesk.variable} ${geistMono.variable} antialiased`}
+        className={`${figtree.variable} ${fraunces.variable} ${gudlak.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
