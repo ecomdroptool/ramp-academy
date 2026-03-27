@@ -6,7 +6,7 @@ import { Marquee } from "@/components/ui/marquee";
 import { NumberTicker } from "@/components/ui/number-ticker";
 
 const partners = [
-  { name: "Base44", logo: "/logos/base44.png", height: 22 },
+  { name: "Base44", logo: "/logos/base44.png", height: 32 },
   { name: "Wix", logo: "/logos/wix.svg", height: 20 },
   { name: "Claude", logo: "/logos/claude.png", height: 22 },
   { name: "ChatGPT", logo: "/logos/chatgpt.png", height: 22 },
@@ -24,7 +24,7 @@ function PartnerLogo({ partner }: { partner: (typeof partners)[0] }) {
         alt={partner.name}
         width={partner.height}
         height={partner.height}
-        className="object-contain opacity-40 grayscale"
+        className="object-contain opacity-50"
       />
       <span className="text-sm font-medium text-muted-text/50 whitespace-nowrap">
         {partner.name}
