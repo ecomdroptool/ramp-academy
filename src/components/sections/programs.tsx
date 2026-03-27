@@ -1,10 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import { Rocket, Users, Video, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { MagneticButton } from "@/components/ui/magnetic-button";
 
 const programs = [
   {
@@ -46,29 +44,14 @@ const programs = [
 ];
 
 function ProgramCard({ program, i }: { program: (typeof programs)[0]; i: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const { left, top } = ref.current!.getBoundingClientRect();
-    mouseX.set(e.clientX - left);
-    mouseY.set(e.clientY - top);
-  }
-
-  const spotlight = useMotionTemplate`
-    radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(205,255,80,0.05), transparent 80%)
-  `;
-
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: i * 0.1 }}
+      transition={{ duration: 0.4, delay: i * 0.08 }}
       className="relative"
     >
-      {/* Badge — outside overflow-hidden */}
       {program.badge && (
         <Badge
           className={`absolute -top-3 left-6 z-10 rounded-full px-3 py-1 text-xs font-semibold border-0 ${
@@ -82,63 +65,49 @@ function ProgramCard({ program, i }: { program: (typeof programs)[0]; i: number 
       )}
 
       <div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        className={`card-lift relative rounded-2xl border bg-white p-8 flex flex-col overflow-hidden h-full ${
+        className={`rounded-2xl border bg-white p-8 flex flex-col h-full transition-colors ${
           program.featured
-            ? "border-lime/30 ring-1 ring-lime/20"
-            : "border-border-subtle"
+            ? "border-void/20"
+            : "border-border-subtle hover:border-void/10"
         }`}
       >
-        {/* Mouse spotlight */}
-        <motion.div
-          className="pointer-events-none absolute inset-0 rounded-2xl"
-          style={{ background: spotlight }}
-        />
+        <div
+          className={`flex h-10 w-10 items-center justify-center rounded-lg ${
+            program.featured ? "bg-void" : "bg-subtle"
+          }`}
+        >
+          <program.icon
+            size={18}
+            className={program.featured ? "text-lime" : "text-muted-text"}
+          />
+        </div>
 
-      {/* Icon */}
-      <div
-        className={`relative flex h-12 w-12 items-center justify-center rounded-xl ${
-          program.featured ? "bg-lime/10" : "bg-subtle"
-        }`}
-      >
-        <program.icon
-          size={22}
-          className={program.featured ? "text-void" : "text-muted-text"}
-        />
-      </div>
+        <h3 className="mt-5 font-display text-xl font-bold text-void">
+          {program.title}
+        </h3>
+        <p className="mt-1 text-2xl font-extrabold text-void">
+          {program.price}
+        </p>
 
-      {/* Title + Price */}
-      <h3 className="mt-5 font-display text-xl font-bold text-void relative">
-        {program.title}
-      </h3>
-      <p className="mt-1 font-display text-2xl font-extrabold text-void relative">
-        {program.price}
-      </p>
+        <p className="mt-3 text-sm text-muted-text leading-relaxed flex-grow">
+          {program.description}
+        </p>
 
-      {/* Description */}
-      <p className="mt-3 text-sm text-muted-text leading-relaxed flex-grow relative">
-        {program.description}
-      </p>
+        <ul className="mt-5 space-y-2">
+          {program.features.map((feature) => (
+            <li
+              key={feature}
+              className="flex items-center gap-2 text-sm text-void/60"
+            >
+              <span className="h-1 w-1 rounded-full bg-void/30 flex-shrink-0" />
+              {feature}
+            </li>
+          ))}
+        </ul>
 
-      {/* Features */}
-      <ul className="mt-5 space-y-2 relative">
-        {program.features.map((feature) => (
-          <li
-            key={feature}
-            className="flex items-center gap-2 text-sm text-void/70"
-          >
-            <span className="h-1 w-1 rounded-full bg-lime flex-shrink-0" />
-            {feature}
-          </li>
-        ))}
-      </ul>
-
-      {/* CTA */}
-      <MagneticButton strength={0.15} className="mt-6 relative self-start">
         <a
           href={program.href}
-          className={`inline-flex items-center justify-center gap-2 rounded-full px-6 h-11 text-sm font-semibold transition-all group ${
+          className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-6 h-11 text-sm font-semibold transition-colors self-start group ${
             program.featured
               ? "bg-void text-white hover:bg-void/90"
               : "bg-subtle text-void hover:bg-border-subtle"
@@ -150,7 +119,6 @@ function ProgramCard({ program, i }: { program: (typeof programs)[0]; i: number 
             className="transition-transform group-hover:translate-x-1"
           />
         </a>
-      </MagneticButton>
       </div>
     </motion.div>
   );
@@ -160,7 +128,6 @@ export function Programs() {
   return (
     <section id="programas" className="py-24 sm:py-32 bg-offwhite">
       <div className="mx-auto max-w-6xl px-6">
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -168,34 +135,14 @@ export function Programs() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="text-sm font-medium uppercase tracking-widest text-lime-contrast">
+          <p className="text-sm font-medium uppercase tracking-widest text-muted-text">
             Programas
           </p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-void">
-            Seu Caminho Para{" "}
-            <span className="relative">
-              Faturar com Apps
-              <svg
-                className="absolute -bottom-1 left-0 w-full"
-                viewBox="0 0 300 8"
-                fill="none"
-              >
-                <motion.path
-                  d="M2 6C50 2 100 2 150 4C200 6 250 3 298 5"
-                  stroke="#CDFF50"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-                />
-              </svg>
-            </span>
+            Seu Caminho Para Faturar com Apps
           </h2>
         </motion.div>
 
-        {/* Cards */}
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {programs.map((program, i) => (
             <ProgramCard key={program.title} program={program} i={i} />

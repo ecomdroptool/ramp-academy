@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { NumberTicker } from "@/components/ui/number-ticker";
 
@@ -52,7 +51,7 @@ function Stars() {
   return (
     <div className="flex gap-0.5">
       {[...Array(5)].map((_, i) => (
-        <Star key={i} size={12} className="fill-lime text-lime" />
+        <Star key={i} size={11} className="fill-void/20 text-void/20" />
       ))}
     </div>
   );
@@ -65,66 +64,42 @@ function TestimonialCard({
   t: (typeof testimonials)[0];
   i: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const { left, top } = ref.current!.getBoundingClientRect();
-    mouseX.set(e.clientX - left);
-    mouseY.set(e.clientY - top);
-  }
-
-  const spotlight = useMotionTemplate`
-    radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(205,255,80,0.04), transparent 80%)
-  `;
-
   return (
     <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: i * 0.1 }}
-      className="card-lift relative rounded-2xl border border-border-subtle bg-white p-8 flex flex-col overflow-hidden"
+      transition={{ duration: 0.4, delay: i * 0.08 }}
+      className="rounded-2xl border border-border-subtle bg-white p-7 flex flex-col"
     >
-      {/* Mouse spotlight */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 rounded-2xl"
-        style={{ background: spotlight }}
-      />
+      <Quote size={24} className="text-void/10 mb-2" strokeWidth={1.5} />
 
-      {/* Quote icon */}
-      <Quote size={32} className="text-lime/20 mb-2" strokeWidth={1.5} />
-
-      {/* Quote text */}
-      <p className="text-void/80 leading-relaxed text-[15px] flex-grow relative">
+      <p className="text-void/70 leading-relaxed text-[15px] flex-grow">
         &ldquo;{t.quote}&rdquo;
       </p>
 
       {/* Value badge */}
       {t.value > 0 ? (
         <>
-          <div className="mt-6 inline-flex items-baseline gap-1 rounded-full bg-lime/10 px-4 py-2 self-start">
-            <span className="text-sm font-medium text-void/60">R$</span>
+          <div className="mt-5 inline-flex items-baseline gap-1 rounded-full bg-void/5 px-3 py-1.5 self-start">
+            <span className="text-xs font-medium text-void/40">R$</span>
             <NumberTicker
               value={t.value}
-              className="font-display text-2xl font-extrabold text-void"
+              className="font-display text-xl font-extrabold text-void"
             />
           </div>
           <p className="mt-1 text-xs text-muted-text">{t.label}</p>
         </>
       ) : (
-        <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-lime/10 px-4 py-2 self-start">
-          <span className="font-display text-base font-extrabold text-void">{t.label}</span>
+        <div className="mt-5 inline-flex items-center rounded-full bg-void/5 px-3 py-1.5 self-start">
+          <span className="font-display text-sm font-extrabold text-void">{t.label}</span>
         </div>
       )}
 
       {/* Author */}
-      <div className="mt-5 flex items-center gap-3 pt-5 border-t border-border-subtle relative">
+      <div className="mt-4 flex items-center gap-3 pt-4 border-t border-border-subtle">
         <div
-          className={`flex h-10 w-10 items-center justify-center rounded-full ${t.color} text-sm font-bold ${
+          className={`flex h-9 w-9 items-center justify-center rounded-full ${t.color} text-xs font-bold ${
             t.color === "bg-lime" ? "text-void" : "text-white"
           }`}
         >
@@ -146,7 +121,6 @@ export function Testimonials() {
   return (
     <section id="resultados" className="py-24 sm:py-32 bg-offwhite">
       <div className="mx-auto max-w-6xl px-6">
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -154,7 +128,7 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="text-sm font-medium uppercase tracking-widest text-lime-contrast">
+          <p className="text-sm font-medium uppercase tracking-widest text-muted-text">
             Resultados
           </p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-void">
@@ -164,8 +138,7 @@ export function Testimonials() {
           </h2>
         </motion.div>
 
-        {/* Cards */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {testimonials.map((t, i) => (
             <TestimonialCard key={t.name} t={t} i={i} />
           ))}

@@ -38,7 +38,6 @@ export function HowItWorks() {
   return (
     <section className="py-24 sm:py-32 bg-subtle">
       <div className="mx-auto max-w-6xl px-6">
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +45,7 @@ export function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="text-sm font-medium uppercase tracking-widest text-lime-contrast">
+          <p className="text-sm font-medium uppercase tracking-widest text-muted-text">
             Método
           </p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-void">
@@ -54,41 +53,31 @@ export function HowItWorks() {
           </h2>
         </motion.div>
 
-        {/* Steps */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="relative"
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="flex flex-col items-center text-center"
             >
-              {/* Connector line on desktop */}
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-32px)] h-px step-connector" />
-              )}
-
-              <div className="flex flex-col items-center text-center">
-                {/* Number circle */}
-                <div className="relative">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-lime">
-                    <step.icon size={24} className="text-void" strokeWidth={2} />
-                  </div>
-                  <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-void text-[10px] font-bold text-white">
-                    {step.number}
-                  </span>
+              <div className="relative">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-void">
+                  <step.icon size={22} className="text-lime" strokeWidth={2} />
                 </div>
-
-                {/* Text */}
-                <h3 className="mt-5 font-display text-lg font-bold text-void">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-text leading-relaxed max-w-[240px]">
-                  {step.description}
-                </p>
+                <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-lime text-[10px] font-bold text-void">
+                  {step.number}
+                </span>
               </div>
+
+              <h3 className="mt-5 font-display text-lg font-bold text-void">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-sm text-muted-text leading-relaxed max-w-[240px]">
+                {step.description}
+              </p>
             </motion.div>
           ))}
         </div>
