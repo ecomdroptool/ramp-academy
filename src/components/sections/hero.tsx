@@ -6,12 +6,30 @@ import { Button } from "@/components/ui/button";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { WordRotate } from "@/components/ui/word-rotate";
 import { NeuralGrid } from "@/components/ui/neural-grid";
+import Image from "next/image";
 
 export function Hero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center bg-void overflow-hidden">
       {/* Animated neural grid background */}
       <NeuralGrid />
+
+      {/* RAMP logo watermark — between grid and text */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
+        className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none"
+      >
+        <Image
+          src="/logos/ramp-logo.png"
+          alt=""
+          width={500}
+          height={500}
+          className="w-[280px] sm:w-[360px] md:w-[440px] lg:w-[500px] opacity-[0.07]"
+          priority
+        />
+      </motion.div>
 
       {/* Subtle radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_-10%,rgba(205,255,80,0.06),transparent)]" />
