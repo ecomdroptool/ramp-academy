@@ -5,10 +5,14 @@ import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { WordRotate } from "@/components/ui/word-rotate";
+import { NeuralGrid } from "@/components/ui/neural-grid";
 
 export function Hero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center bg-void overflow-hidden">
+      {/* Animated neural grid background */}
+      <NeuralGrid />
+
       {/* Subtle radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_-10%,rgba(205,255,80,0.06),transparent)]" />
 
