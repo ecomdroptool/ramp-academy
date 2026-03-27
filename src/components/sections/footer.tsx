@@ -17,8 +17,8 @@ const footerLinks = {
     { label: "Newsletter", href: "#newsletter" },
   ],
   Legal: [
-    { label: "Termos de Uso", href: "#" },
-    { label: "Política de Privacidade", href: "#" },
+    { label: "Termos de Uso", href: "/termos" },
+    { label: "Política de Privacidade", href: "/privacidade" },
   ],
 };
 
