@@ -1,24 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Marquee } from "@/components/ui/marquee";
 import { NumberTicker } from "@/components/ui/number-ticker";
 
 const partners = [
-  "Base44",
-  "Wix",
-  "Vercel",
-  "Supabase",
-  "Stripe",
-  "Hotmart",
+  { name: "Base44", logo: "/logos/base44.png", height: 22 },
+  { name: "Wix", logo: "/logos/wix.svg", height: 20 },
+  { name: "Claude", logo: "/logos/claude.png", height: 22 },
+  { name: "ChatGPT", logo: "/logos/chatgpt.png", height: 22 },
+  { name: "Vercel", logo: "/logos/vercel.svg", height: 18 },
+  { name: "Supabase", logo: "/logos/supabase.webp", height: 22 },
+  { name: "Stripe", logo: "/logos/stripe.webp", height: 22 },
+  { name: "Hotmart", logo: "/logos/hotmart.svg", height: 22 },
 ];
 
-function LogoPlaceholder({ name }: { name: string }) {
+function PartnerLogo({ partner }: { partner: (typeof partners)[0] }) {
   return (
-    <div className="flex items-center gap-2 px-6 py-2">
-      <div className="h-5 w-5 rounded bg-void/5" />
-      <span className="text-sm font-medium text-muted-text/60 whitespace-nowrap">
-        {name}
+    <div className="flex items-center gap-2.5 px-8 py-2">
+      <Image
+        src={partner.logo}
+        alt={partner.name}
+        width={partner.height}
+        height={partner.height}
+        className="object-contain opacity-40 grayscale"
+      />
+      <span className="text-sm font-medium text-muted-text/50 whitespace-nowrap">
+        {partner.name}
       </span>
     </div>
   );
@@ -59,8 +68,8 @@ export function SocialProof() {
             Tecnologias e parceiros
           </p>
           <Marquee pauseOnHover className="[--duration:30s] [--gap:0rem]">
-            {partners.map((name) => (
-              <LogoPlaceholder key={name} name={name} />
+            {partners.map((partner) => (
+              <PartnerLogo key={partner.name} partner={partner} />
             ))}
           </Marquee>
         </motion.div>
