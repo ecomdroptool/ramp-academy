@@ -19,13 +19,13 @@ export function Newsletter() {
             Newsletter
           </p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-void">
-            Receba 1 Ideia de SaaS{" "}
+            Dicas de IA e Claude Code{" "}
             <br className="hidden sm:block" />
-            Lucrativa Por Semana
+            Direto no Seu Email
           </h2>
           <p className="mt-4 text-muted-text leading-relaxed">
-            Toda segunda no seu email: ideias validadas, tutoriais práticos e
-            cases reais de alunos que estão faturando.
+            Toda semana: tutoriais expandidos da série #100DiasDeClaude,
+            ideias de SaaS validadas e cases reais de quem está construindo com IA.
           </p>
         </motion.div>
 

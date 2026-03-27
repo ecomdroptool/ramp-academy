@@ -41,6 +41,12 @@ export function SocialProof() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-void px-3 py-1 text-xs font-semibold text-lime">
+              <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
+              #100DiasDeClaude
+            </span>
+          </div>
           <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-text mb-8">
             Tecnologias e parceiros
           </p>

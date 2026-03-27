@@ -81,13 +81,13 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="mt-6 text-lg sm:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-normal"
         >
-          O ecossistema completo para você{" "}
+          Aprenda a{" "}
           <WordRotate
-            words={["criar", "lançar", "escalar", "faturar"]}
+            words={["construir", "lançar", "vender", "escalar"]}
             className="text-lime font-semibold"
             interval={2200}
           />{" "}
-          seu próprio SaaS — mesmo sem saber programar.
+          seu próprio SaaS com IA — mesmo sem saber programar.
         </motion.div>
 
         {/* CTAs with magnetic effect */}

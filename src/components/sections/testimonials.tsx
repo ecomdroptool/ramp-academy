@@ -36,6 +36,16 @@ const testimonials = [
     avatar: "C",
     color: "bg-void",
   },
+  {
+    name: "Namorada do Pedro",
+    role: "Chatbot IA para Pousada",
+    quote:
+      "Reprovei 3 vezes em Programação na faculdade. Agora construí um chatbot com IA para a pousada da minha família — sem escrever uma linha de código.",
+    value: 0,
+    label: "de reprovada a criadora",
+    avatar: "N",
+    color: "bg-lime",
+  },
 ];
 
 function Stars() {
@@ -94,14 +104,22 @@ function TestimonialCard({
       </p>
 
       {/* Value badge */}
-      <div className="mt-6 inline-flex items-baseline gap-1 rounded-full bg-lime/10 px-4 py-2 self-start">
-        <span className="text-sm font-medium text-void/60">R$</span>
-        <NumberTicker
-          value={t.value}
-          className="font-display text-2xl font-extrabold text-void"
-        />
-      </div>
-      <p className="mt-1 text-xs text-muted-text">{t.label}</p>
+      {t.value > 0 ? (
+        <>
+          <div className="mt-6 inline-flex items-baseline gap-1 rounded-full bg-lime/10 px-4 py-2 self-start">
+            <span className="text-sm font-medium text-void/60">R$</span>
+            <NumberTicker
+              value={t.value}
+              className="font-display text-2xl font-extrabold text-void"
+            />
+          </div>
+          <p className="mt-1 text-xs text-muted-text">{t.label}</p>
+        </>
+      ) : (
+        <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-lime/10 px-4 py-2 self-start">
+          <span className="font-display text-base font-extrabold text-void">{t.label}</span>
+        </div>
+      )}
 
       {/* Author */}
       <div className="mt-5 flex items-center gap-3 pt-5 border-t border-border-subtle relative">
@@ -147,7 +165,7 @@ export function Testimonials() {
         </motion.div>
 
         {/* Cards */}
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {testimonials.map((t, i) => (
             <TestimonialCard key={t.name} t={t} i={i} />
           ))}

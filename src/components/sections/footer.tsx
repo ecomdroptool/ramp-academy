@@ -6,6 +6,11 @@ const footerLinks = {
     { label: "Comunidade Founders", href: "#programas" },
     { label: "Cohort ao Vivo", href: "#newsletter" },
   ],
+  Conteúdo: [
+    { label: "#100DiasDeClaude", href: "#conteudo" },
+    { label: "IA na Vida Real", href: "#conteudo" },
+    { label: "Namorada Builds", href: "#conteudo" },
+  ],
   Empresa: [
     { label: "Sobre", href: "#sobre" },
     { label: "Resultados", href: "#resultados" },
@@ -65,8 +70,8 @@ export function Footer() {
               </span>
             </a>
             <p className="mt-3 text-sm text-white/30 leading-relaxed max-w-xs">
-              O ecossistema completo para criar, lançar e faturar com apps
-              usando IA.
+              Crie sistemas SaaS lucrativos com IA. Sem precisar saber
+              programar. Do zero ao app funcionando.
             </p>
 
             {/* Social */}
